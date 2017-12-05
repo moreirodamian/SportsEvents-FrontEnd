@@ -3,16 +3,38 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './components/app/app.component';
 import { MainViewComponent } from './components/main-view/main-view.component';
-import { GameDetailsComponent } from './components/game-details/game-details.component';
+import { MatchDetailsComponent } from './components/match-details/match-details.component';
+import { RouterModule, Routes} from '@angular/router';
+
+
+const routes:Routes =[
+  {
+    path: 'match-details/:matchId',
+    component: Map
+  },
+  
+  {
+    path: 'home',
+    component: MainViewComponent
+  },
+
+  {
+    path:'',
+    component: MainViewComponent
+  }
+
+]
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainViewComponent,
-    GameDetailsComponent
+    MatchDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
