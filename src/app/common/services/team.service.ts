@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 import { HttpParams } from '@angular/common/http';
-import { Team, TeamInterface } from '@classes/team';
+import { Team, TeamInterface } from '../../classes/team';
 
 
 @Injectable()

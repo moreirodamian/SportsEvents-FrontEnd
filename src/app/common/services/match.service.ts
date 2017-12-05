@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 import { HttpParams } from '@angular/common/http';
-import { Match, MatchInterface } from '@classes/match';
+import { Match, MatchInterface } from '../../classes/match';
 
 
 @Injectable()
