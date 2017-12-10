@@ -5,12 +5,13 @@ import { AppComponent } from './components/app/app.component';
 import { MainViewComponent } from './components/main-view/main-view.component';
 import { MatchDetailsComponent } from './components/match-details/match-details.component';
 import { RouterModule, Routes} from '@angular/router';
+import { MatchComponent } from './components/match/match.component';
 
 
 const routes:Routes =[
   {
     path: 'match-details/:matchId',
-    component: Map
+    component: MatchDetailsComponent
   },
   
   {
@@ -30,7 +31,8 @@ const routes:Routes =[
   declarations: [
     AppComponent,
     MainViewComponent,
-    MatchDetailsComponent
+    MatchDetailsComponent,
+    MatchComponent
   ],
   imports: [
     BrowserModule,
