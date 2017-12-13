@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Start Date: {{match.startDate}}</div>
+        <div class="panel-body">
+          <div class="col-md-6">
+            Status: {{match.status}}
+          </div>
+          <div class="col-md-6">
+            Teams: {{ match.teams?.length || '0' }}
+          </div>
+          <div class="col-md-12">
+            <button (click)="showDetails(match.id)" class="btn-info pull-right">More information</button>
+          </div>
+
+        </div>
+      </div>
+  
+ 
+</div>

@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Current matches in progress!</h1>
+  <div class="row main">
+    <div class="col-sm-12 col-md-6" *ngFor="let match of matchs">
+          <match [match]="match"></match>
+    </div>
+  </div>
+</div>
