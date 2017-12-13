@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 import { HttpParams } from '@angular/common/http';
-import { Match, MatchInterface } from '../../classes/match';
+import { Match } from '../../classes/match';
+
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
@@ -28,14 +30,14 @@ class MatchService {
     return params;
   }
 
-  getMatchbyId (matchId: string): Promise<void | any>  {
+  getMatchbyId (matchId: string): Promise<void | Match>  {
     const params = this.getParams({});
     
     const url = 'matchs/' + matchId;
     
     return this.http.get(this.getApiUrl(url), {params: params})
         .toPromise()
-        .then(response => response.json()) //.results.map((data: MatchInterface) => new Match(data)))
+        .then(response => new Match(response.json()))
         .catch(this.handleError);
   }
 
@@ -43,19 +45,19 @@ class MatchService {
     const params = this.getParams({
         inProgress: true,
         populate: true
-    });
-    
+    });    
     const url =  'matchs';
+
     return this.http.get(this.getApiUrl(url), {params: params})
         .toPromise()
-        .then(response => response.json()) //.results.map((data: MatchInterface) => new Match(data)))
+        .then(response => response.json().map(res => new Match(res)))
         .catch(this.handleError);
   }
 
 
   
   handleError (error:Response): void {
-    console.log(error);
+    console.log("ERROR OCURRED IN MATCH SERVICE: " + error);
   }
 
 }

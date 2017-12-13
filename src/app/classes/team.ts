@@ -1,24 +1,25 @@
 interface TeamInterface {
-    id:Object,
+    _id:string,
     name:String,
     shortName:String,
     createdDate:Date
 
 }
+
 class Team {
-    id:Object;
+    id:string;
     name:String;
     shortName:String;
     createdDate:Date;
 
     constructor(data: TeamInterface){
-        this.id=data.id;
+        this.id=data._id;
         this.name=data.name;
-        this.shortName=data.name;
+        this.shortName=data.shortName;
         this.createdDate=data.createdDate;
     }
 
 
 }
 
-export { Team, TeamInterface};
+export { Team, TeamInterface };
