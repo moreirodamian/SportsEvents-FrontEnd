@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatchService } from "../../common/services/match.service";
 import { Match } from "../../classes/match";
 import { ActivatedRoute } from '@angular/router';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-match-details',
@@ -12,10 +14,11 @@ export class MatchDetailsComponent implements OnInit {
 
   private match : any;
   private matchId : string;
+  private teams: any
 
   providers: [MatchService]
 
-  constructor(private matchService: MatchService, private activatedRoute:ActivatedRoute) { }
+  constructor(private matchService: MatchService, private activatedRoute:ActivatedRoute, private _router:Router) { }
 
   ngOnInit() {
     this.matchId=this.activatedRoute.snapshot.params.matchId;
@@ -29,13 +32,22 @@ export class MatchDetailsComponent implements OnInit {
   handleMatchLoad(match:any) : void {
     if (match === undefined) return;
     this.match = match;
+    this.match.teams.forEach(element => {
+      this.teams[0]=element;
+      
+    });
+
+
+    console.log(match);
 
   }
   handleError() : void{
     console.log("An error ocurred when try to load the selected match.");
   }
 
+  backtoHome (): void{
+    this._router.navigate(['/']);
+}
+
 
 }
-//Que chat verga boludo.
-//Fijate que esta posman, intenta hacer alfo

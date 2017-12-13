@@ -6,6 +6,8 @@ import { MainViewComponent } from './components/main-view/main-view.component';
 import { MatchDetailsComponent } from './components/match-details/match-details.component';
 import { RouterModule, Routes} from '@angular/router';
 import { MatchComponent } from './components/match/match.component';
+import { MatchService } from './common/services/match.service';
+import { HttpModule } from '@angular/http';
 
 
 const routes:Routes =[
@@ -37,8 +39,9 @@ const routes:Routes =[
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    HttpModule
   ],
-  providers: [],
+  providers: [MatchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
